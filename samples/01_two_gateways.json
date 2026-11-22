@@ -1,0 +1,84 @@
+{
+  "case_id": "01-two-gateways",
+  "announcements": [
+    {
+      "src": "gw-north",
+      "gen": 1,
+      "start_seq": 100
+    }
+  ],
+  "rules": [
+    {
+      "id": "fleet-default",
+      "effective_epoch": 0,
+      "precedence": 0,
+      "routes": [
+        {
+          "dst": "zone-1",
+          "allow": true
+        },
+        {
+          "dst": "zone-2",
+          "allow": false
+        }
+      ]
+    }
+  ],
+  "batches": [
+    {
+      "id": "arrival-a",
+      "arrival": 1000,
+      "epoch": 0,
+      "events": [
+        {
+          "gateway": "relay-a",
+          "src": "gw-north",
+          "gen": 1,
+          "seq": 100,
+          "dst": "zone-1",
+          "business_id": "cfg-42",
+          "fingerprint": "23ce2cbee8d40dcd44e2d9367b7b72d0584e34b6e0c732c5149e0d6ebd640be8",
+          "created_at": 1000
+        },
+        {
+          "gateway": "relay-a",
+          "src": "gw-north",
+          "gen": 1,
+          "seq": 101,
+          "dst": "zone-2",
+          "business_id": "cfg-43",
+          "fingerprint": "f1c1fa216bbe6796e24bab0446542efce802aef0fda8d83fe0664ea6f32eb69d",
+          "created_at": 1001
+        }
+      ]
+    },
+    {
+      "id": "arrival-b",
+      "arrival": 1010,
+      "epoch": 0,
+      "events": [
+        {
+          "gateway": "relay-b",
+          "src": "gw-north",
+          "gen": 1,
+          "seq": 100,
+          "dst": "zone-1",
+          "business_id": "cfg-42",
+          "fingerprint": "23ce2cbee8d40dcd44e2d9367b7b72d0584e34b6e0c732c5149e0d6ebd640be8",
+          "created_at": 1000
+        },
+        {
+          "gateway": "relay-b",
+          "src": "gw-north",
+          "gen": 1,
+          "seq": 102,
+          "dst": "zone-1",
+          "business_id": "cfg-44",
+          "fingerprint": "b2eace7219ad4b270ed032e7d198212e746bb44b4529e9aa9e296028296f8b1d",
+          "created_at": 1002
+        }
+      ]
+    }
+  ],
+  "gaps": []
+}

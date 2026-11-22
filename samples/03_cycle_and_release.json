@@ -1,0 +1,92 @@
+{
+  "case_id": "03-cycle-and-release",
+  "announcements": [
+    {
+      "src": "gw-north",
+      "gen": 1,
+      "start_seq": 1
+    },
+    {
+      "src": "gw-south",
+      "gen": 1,
+      "start_seq": 1
+    }
+  ],
+  "rules": [
+    {
+      "id": "fleet-default",
+      "effective_epoch": 0,
+      "precedence": 0,
+      "routes": [
+        {
+          "dst": "zone-1",
+          "allow": true
+        }
+      ]
+    }
+  ],
+  "batches": [
+    {
+      "id": "mutual",
+      "arrival": 100,
+      "epoch": 0,
+      "events": [
+        {
+          "gateway": "relay-a",
+          "src": "gw-north",
+          "gen": 1,
+          "seq": 1,
+          "dst": "zone-1",
+          "business_id": "n-1",
+          "fingerprint": "284bec94a67f706662e11337a6bd23ca6a73d9854ce9a98ac51a9f602c5fdb07",
+          "created_at": 100,
+          "predecessors": [
+            {
+              "src": "gw-south",
+              "gen": 1,
+              "seq": 1
+            }
+          ]
+        },
+        {
+          "gateway": "relay-a",
+          "src": "gw-south",
+          "gen": 1,
+          "seq": 1,
+          "dst": "zone-1",
+          "business_id": "s-1",
+          "fingerprint": "98c27760c8da8313782353b026be442343cddf0527ad7b9f2791b71710043405",
+          "created_at": 101,
+          "predecessors": [
+            {
+              "src": "gw-north",
+              "gen": 1,
+              "seq": 1
+            }
+          ]
+        },
+        {
+          "gateway": "relay-a",
+          "src": "gw-north",
+          "gen": 1,
+          "seq": 2,
+          "dst": "zone-1",
+          "business_id": "n-2",
+          "fingerprint": "36f6f3645976c652ff75664f06c4782e7aae525d088113f1b48dc8f75c145470",
+          "created_at": 102
+        }
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "src": "gw-north",
+      "gen": 1,
+      "seq": 1,
+      "kind": "CANCEL",
+      "reason": "audited deadlock, ticket OPS-88",
+      "arrival": 400,
+      "authority": "auditor"
+    }
+  ]
+}

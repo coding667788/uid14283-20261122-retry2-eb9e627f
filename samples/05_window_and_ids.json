@@ -1,0 +1,110 @@
+{
+  "case_id": "05-window-and-ids",
+  "announcements": [
+    {
+      "src": "gw-north",
+      "gen": 1,
+      "start_seq": 10
+    }
+  ],
+  "rules": [
+    {
+      "id": "fleet-default",
+      "effective_epoch": 0,
+      "precedence": 0,
+      "routes": [
+        {
+          "dst": "zone-1",
+          "allow": true
+        }
+      ]
+    }
+  ],
+  "control": {
+    "max_window": 3
+  },
+  "batches": [
+    {
+      "id": "b-1",
+      "arrival": 100,
+      "epoch": 0,
+      "events": [
+        {
+          "gateway": "relay-a",
+          "src": "gw-north",
+          "gen": 1,
+          "seq": 10,
+          "dst": "zone-1",
+          "business_id": "cfg-1",
+          "fingerprint": "ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb",
+          "created_at": 100
+        },
+        {
+          "gateway": "relay-a",
+          "src": "gw-north",
+          "gen": 1,
+          "seq": 13,
+          "dst": "zone-1",
+          "business_id": "cfg-4",
+          "fingerprint": "18ac3e7343f016890c510e93f935261169d9e3f565436429830faf0934f4f8e4",
+          "created_at": 103
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "arrival": 200,
+      "epoch": 0,
+      "events": [
+        {
+          "gateway": "relay-a",
+          "src": "gw-north",
+          "gen": 1,
+          "seq": 11,
+          "dst": "zone-1",
+          "business_id": "cfg-2",
+          "fingerprint": "3e23e8160039594a33894f6564e1b1348bbd7a0088d42c4acb73eeaed59c009d",
+          "created_at": 101
+        },
+        {
+          "gateway": "relay-b",
+          "src": "gw-north",
+          "gen": 1,
+          "seq": 12,
+          "dst": "zone-1",
+          "business_id": "cfg-3",
+          "fingerprint": "2e7d2c03a9507ae265ecf5b5356885a53393a2029d241394997265a1a25aefc6",
+          "created_at": 102
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "arrival": 300,
+      "epoch": 0,
+      "events": [
+        {
+          "gateway": "relay-c",
+          "src": "gw-north",
+          "gen": 1,
+          "seq": 13,
+          "dst": "zone-1",
+          "business_id": "cfg-4",
+          "fingerprint": "18ac3e7343f016890c510e93f935261169d9e3f565436429830faf0934f4f8e4",
+          "created_at": 103
+        },
+        {
+          "gateway": "relay-c",
+          "src": "gw-north",
+          "gen": 1,
+          "seq": 14,
+          "dst": "zone-1",
+          "business_id": "cfg-1",
+          "fingerprint": "48cedd1c0710439f7e692eba9b775c23607f497a34b78bd53c7168c941b18bfd",
+          "created_at": 104
+        }
+      ]
+    }
+  ],
+  "gaps": []
+}

@@ -1,0 +1,103 @@
+{
+  "case_id": "04-policy-barrier",
+  "announcements": [
+    {
+      "src": "gw-north",
+      "gen": 1,
+      "start_seq": 1
+    },
+    {
+      "src": "gw-south",
+      "gen": 1,
+      "start_seq": 1
+    }
+  ],
+  "rules": [
+    {
+      "id": "fleet-default",
+      "effective_epoch": 0,
+      "precedence": 0,
+      "routes": [
+        {
+          "dst": "zone-1",
+          "allow": true
+        },
+        {
+          "dst": "zone-2",
+          "allow": true
+        }
+      ]
+    }
+  ],
+  "batches": [
+    {
+      "id": "waiting",
+      "arrival": 100,
+      "epoch": 0,
+      "events": [
+        {
+          "gateway": "relay-a",
+          "src": "gw-north",
+          "gen": 1,
+          "seq": 1,
+          "dst": "zone-2",
+          "business_id": "n-1",
+          "fingerprint": "16118d165476fc53412bacb82ae969708414be480089d20f54bc1104788487db",
+          "created_at": 100,
+          "predecessors": [
+            {
+              "src": "gw-south",
+              "gen": 1,
+              "seq": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "emergency",
+      "arrival": 300,
+      "epoch": 5,
+      "events": [
+        {
+          "gateway": "relay-a",
+          "src": "gw-south",
+          "gen": 1,
+          "seq": 1,
+          "dst": "zone-1",
+          "business_id": "s-1",
+          "fingerprint": "c9dc907783e668e099f43fdfbb949c72e2d82fb7668c1c5079b05d58c68ac447",
+          "created_at": 200
+        },
+        {
+          "gateway": "relay-b",
+          "src": "gw-north",
+          "gen": 1,
+          "seq": 2,
+          "dst": "zone-2",
+          "business_id": "n-2",
+          "fingerprint": "9528552256d14f3aad2545b97bcbce6b90712b27a2c122e18a45c70dd8854382",
+          "created_at": 300
+        }
+      ],
+      "rules": [
+        {
+          "id": "fleet-default",
+          "effective_epoch": 5,
+          "precedence": 0,
+          "routes": [
+            {
+              "dst": "zone-1",
+              "allow": true
+            },
+            {
+              "dst": "zone-2",
+              "allow": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "gaps": []
+}

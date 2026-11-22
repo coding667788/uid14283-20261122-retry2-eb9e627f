@@ -1,0 +1,63 @@
+{
+  "case_id": "06-fault-recovery",
+  "announcements": [
+    {
+      "src": "gw-north",
+      "gen": 1,
+      "start_seq": 1
+    }
+  ],
+  "rules": [
+    {
+      "id": "fleet-default",
+      "effective_epoch": 0,
+      "precedence": 0,
+      "routes": [
+        {
+          "dst": "zone-1",
+          "allow": true
+        }
+      ]
+    }
+  ],
+  "batches": [
+    {
+      "id": "abort",
+      "arrival": 100,
+      "epoch": 0,
+      "events": [
+        {
+          "gateway": "relay-a",
+          "src": "gw-north",
+          "gen": 1,
+          "seq": 1,
+          "dst": "zone-1",
+          "business_id": "m-1",
+          "fingerprint": "7692c3ad3540bb803c020b3aee66cd8887123234ea0c6e7143c0add73ff431ed",
+          "created_at": 100
+        },
+        {
+          "gateway": "relay-a",
+          "src": "gw-north",
+          "gen": 1,
+          "seq": 2,
+          "dst": "zone-1",
+          "business_id": "m-2",
+          "fingerprint": "3fc4ccfe745870e2c0d99f71f30ff0656c8dedd41cc1d7d3d376b0dbe685e2f3",
+          "created_at": 101
+        },
+        {
+          "gateway": "relay-a",
+          "src": "gw-north",
+          "gen": 1,
+          "seq": 3,
+          "dst": "zone-1",
+          "business_id": "m-3",
+          "fingerprint": "8b5b9db0c13db24256c829aa364aa90c6d2eba318b9232a4ab9313b954d3555f",
+          "created_at": 102
+        }
+      ]
+    }
+  ],
+  "gaps": []
+}

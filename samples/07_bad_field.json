@@ -1,0 +1,53 @@
+{
+  "case_id": "07-bad-field",
+  "announcements": [
+    {
+      "src": "gw-north",
+      "gen": 1,
+      "start_seq": 1
+    }
+  ],
+  "rules": [
+    {
+      "id": "fleet-default",
+      "effective_epoch": 0,
+      "precedence": 0,
+      "routes": [
+        {
+          "dst": "zone-1",
+          "allow": true
+        }
+      ]
+    }
+  ],
+  "batches": [
+    {
+      "id": "broken",
+      "arrival": 100,
+      "epoch": 0,
+      "events": [
+        {
+          "gateway": "relay-a",
+          "src": "gw-north",
+          "gen": 1,
+          "seq": 1,
+          "dst": "zone-1",
+          "business_id": "m-1",
+          "fingerprint": "7692c3ad3540bb803c020b3aee66cd8887123234ea0c6e7143c0add73ff431ed",
+          "created_at": 100
+        },
+        {
+          "gateway": "relay-a",
+          "src": "gw-north",
+          "gen": 1,
+          "seq": 2,
+          "dst": "zone-1",
+          "business_id": "m-2",
+          "fingerprint": "not-a-sha256",
+          "created_at": 101
+        }
+      ]
+    }
+  ],
+  "gaps": []
+}
